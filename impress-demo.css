@@ -1,0 +1,37 @@
+body {
+    direction: rtl;
+    background: gray;
+}
+.fallback-message {
+    margin: auto;
+    width: 500px;
+    background: #fbfb85;
+    border: solid 1px #444;
+    border-radius: 5px;
+}
+.fallback-message p {
+    text-align: center;
+    color: #fb4141;
+    text-shadow: 1px 1px 1px #000, -1px 1px 1px #000, -1px -1px 1px #000, 1px -1px 1px #000;
+}
+.slide {
+    width: 95vw;
+    height: 95vh;
+    margin: auto;
+    padding: 10vh 0
+}
+.slide .inner{
+    background: #FFF;
+    width: 80%;
+    min-height: 80%;
+    margin: auto;
+    border-radius: 3vw/3vh;
+    padding: 2vh 2vw;
+}
+.slide.section h3 {
+    text-align: left;
+}
+.slide#כותרת .inner{
+    text-align: center;
+    padding-top: 90px;
+}

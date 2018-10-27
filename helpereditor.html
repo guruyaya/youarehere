@@ -1,0 +1,30 @@
+<html style="direction: rtl">
+<script
+  src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"></script>
+<textarea id="src" style="width:90vw; height: 40vh">
+</textarea>
+<textarea id="target" style="width:90vw; height: 40vh">
+</textarea>
+<script>
+$('#src').on('keyup', function(){
+    var htmlOutput = $(this).val();
+    htmlOutput = htmlOutput.replace(/\[([^\]]*)\]\(([^\)]*)\)/, '<a href="#$2">$1</a>');
+
+    htmlOutput = htmlOutput.split('\n');
+    htmlOutput[0] = '<h3>'+htmlOutput[0]+'</h3>';
+    htmlOutput[1] = '<p>';
+    htmlOutput[htmlOutput.length-1] = '</p>';
+
+    for (var i=2;i<htmlOutput.length-1;i++){
+        if (htmlOutput[i].trim() == '')
+            htmlOutput[i] = "</p>\n<p>";
+        else
+            htmlOutput[i] = htmlOutput[i] + '<br />';
+    }
+    htmlOutput = htmlOutput.join('\n')
+    $('#target').val(htmlOutput);
+});
+</script>
+</html>
