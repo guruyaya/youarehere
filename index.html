@@ -17,31 +17,34 @@
     <link rel="apple-touch-icon" href="apple-touch-icon.png" />
 </head>
 
-<body class="impress-not-supported">
-
-<!--
-    For example this fallback message is only visible when there is `impress-not-supported` class on body.
--->
-<div class="fallback-message">
-    <p><bdi><span class="bdi">כנראה שלא הצלחנו להפעיל את האתר כצפוי</span></bdi></p>
-    <p><bdi><span class="bdi">נסה לגלוש באמצעות <b>Chrome</b>، <b>Safari</b> أو <b>Firefox</b>.</span></bdi></p>
-</div>
-
 <div id="impress">
-    <div id="כותרת" class="step slide" data-x="1000" data-y="-1500">
+    <div class="step slide" data-x="1000" data-y="-1500" data-z="100500" data-scale=300 id="start">
         <div class="inner">
-            <h1><bdi><span class="bdi">אתה נמצא <a href="#היכן אתה על המפה">כאן</a></span></bdi></h1>
+            <h1>
+                <bdi class="you">
+                    אתה
+                </bdi>
+                <bdi class="are">
+                    נמצא
+                </bdi>
+                <bdi class="here">
+                    <a href="#היכן-אתה">
+                        כאן
+                    </a>
+                </bdi>
+            </h1>
     		<h2><bdi>שירים מאת יאיר אשל כהנסקי</bdi></h2>
             <h2>עריכה: ענבל אשל כהנסקי</h2>
         </div>
     </div>
 
-    <div class="slide step section">
+    <div class="slide step section" data-x="0" data-y="0"  data-z="-1200">
         <div class="inner">
             <h3>גל פרוש על כל היקום</h3>
         </div>
     </div>
-    <div class="slide step" id="היכן אתה על המפה">
+
+    <div class="slide step" data-x="100" data-y="3000" data-z="400" data-rotate-z="90" id="היכן-אתה">
         <div class="inner">
             <h3>"היכן אתה על המפה?"</h3>
             <p>
@@ -72,7 +75,7 @@
             </p>
         </div>
     </div>
-    <div class="slide step" id="היכן אתה על המפה">
+    <div class="slide step" data-x="300" data-z="200" data-y="300" data-rotate-y="90">
         <div class="inner">
             זוביידה
 
@@ -85,8 +88,8 @@
     </div>
 </div>
 
-<!-- <script src="impress.js"></script>
-<script>impress().init();</script> -->
+<script src="impress.js"></script>
+<script>impress().init();</script>
 
 </body>
 </html>

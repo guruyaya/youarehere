@@ -1,13 +1,5 @@
 body {
-    direction: rtl;
     background: gray;
-}
-.fallback-message {
-    margin: auto;
-    width: 500px;
-    background: #fbfb85;
-    border: solid 1px #444;
-    border-radius: 5px;
 }
 .fallback-message p {
     text-align: center;
@@ -21,6 +13,7 @@ body {
     padding: 10vh 0
 }
 .slide .inner{
+    direction: rtl;
     background: #FFF;
     width: 80%;
     min-height: 80%;
@@ -31,7 +24,21 @@ body {
 .slide.section h3 {
     text-align: left;
 }
-.slide#כותרת .inner{
+.slide#start .inner{
     text-align: center;
-    padding-top: 90px;
+    background: transparent;
+}
+.slide#start h1 {
+    font-size: 8vw;
+    padding: 0;
+    margin: 0;
+}
+.slide#start h1 bdi {
+    display: block;
+}
+.slide#start h1 bdi.you {
+    margin-left: 17vw;
+}
+.slide#start h1 bdi.are {
+    margin-left: -20vw;
 }
