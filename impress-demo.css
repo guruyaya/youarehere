@@ -1,5 +1,7 @@
 body {
-    background: gray;
+    background: url('map.png') #777;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 .fallback-message p {
     text-align: center;
@@ -27,6 +29,7 @@ body {
 .slide#start .inner{
     text-align: center;
     background: transparent;
+    text-shadow: 0 0 2px #000, 2px 2px 1px #FFF, -2px 2px 1px #FFF;
 }
 .slide#start h1 {
     font-size: 8vw;
