@@ -1,27 +1,25 @@
 body {
-    background: url('map.png') #777;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('map.jpg');
     background-repeat: no-repeat;
     background-position: center;
-}
-.fallback-message p {
-    text-align: center;
-    color: #fb4141;
-    text-shadow: 1px 1px 1px #000, -1px 1px 1px #000, -1px -1px 1px #000, 1px -1px 1px #000;
 }
 .slide {
     width: 95vw;
     height: 95vh;
     margin: auto;
-    padding: 10vh 0
+    padding: 10vh 0;
+    font-family: sans-serif;
+    font-size: 16px;
 }
 .slide .inner{
     direction: rtl;
-    background: #FFF;
+    background: linear-gradient(#fbfb7a, #FFF, #CAC);
     width: 80%;
     min-height: 80%;
     margin: auto;
     border-radius: 3vw/3vh;
     padding: 2vh 2vw;
+    border: solid 1px #000;
 }
 .slide.section h3 {
     text-align: left;
@@ -29,7 +27,9 @@ body {
 .slide#start .inner{
     text-align: center;
     background: transparent;
-    text-shadow: 0 0 2px #000, 2px 2px 1px #FFF, -2px 2px 1px #FFF;
+    text-shadow: -2px -2px 1px #000, 2px -2px 1px #000, 2px 2px 1px #000, -2px 2px 1px #000;
+    border: none;
+    color: #9AF;
 }
 .slide#start h1 {
     font-size: 8vw;
