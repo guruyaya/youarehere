@@ -3,10 +3,12 @@
   src="https://code.jquery.com/jquery-2.2.4.min.js"
   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
   crossorigin="anonymous"></script>
-<textarea id="src" style="width:90vw; height: 40vh">
+<textarea id="src" style="width:90vw; height: 35vh">
 </textarea>
-<textarea id="target" style="width:90vw; height: 40vh">
+<textarea id="target" style="width:90vw; height: 35vh">
 </textarea>
+<input id="title" style="width: 40%" /> <br />
+<textarea id="title_id" style="width: 40%; height: 20vh; text-align: left"></textarea>
 <script>
 $('#src').on('keyup', function(){
     var htmlOutput = $(this).val();
@@ -25,6 +27,13 @@ $('#src').on('keyup', function(){
     }
     htmlOutput = htmlOutput.join('\n')
     $('#target').val(htmlOutput);
+});
+$('#title').on('keyup', function(){
+    var title=$(this).val().replace(/[ ]/g, '-').replace(/[^א-ת-]/g, '');
+    $('#title_id').val('    <div class="slide step" data-x="100" data-y="3000" data-z="400" data-rotate-z="90" id="' + title+ '">\n' +
+'            <div class="inner">\n' +
+'            </div>\n' +
+'        </div>');
 });
 </script>
 </html>

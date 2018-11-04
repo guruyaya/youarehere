@@ -3,6 +3,14 @@ body {
     background-repeat: no-repeat;
     background-position: center;
 }
+a,
+a:active,
+a:visited {
+    color: #5f00a5;
+}
+a:hover {
+    color: #fa7aaa;
+}
 .slide {
     width: 95vw;
     height: 95vh;
@@ -36,6 +44,12 @@ body {
     padding: 0;
     margin: 0;
 }
+.slide#start a,
+.slide#start a:active,
+.slide#start a:visited {
+    color: #9AF;
+}
+
 .slide#start h1 bdi {
     display: block;
 }
@@ -44,4 +58,11 @@ body {
 }
 .slide#start h1 bdi.are {
     margin-left: -20vw;
+}
+.controls .downBtn {
+    position: fixed;
+    bottom: 50vh;
+    left: 5vw;
+    background: red;
+    cursor: pointer;
 }
