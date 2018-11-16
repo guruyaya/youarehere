@@ -66,3 +66,8 @@ a:hover {
     background: red;
     cursor: pointer;
 }
+#all_pages {
+    position: fixed;
+    top: 0;
+    left: 0;
+}

@@ -16,7 +16,7 @@
     <link rel="shortcut icon" href="favicon.png" />
     <link rel="apple-touch-icon" href="apple-touch-icon.png" />
 </head>
-
+<body>
 <div id="impress" data-width="640" data-height="480">
     <div class="slide step" data-x="1000" data-y="-1500" data-z="100500" data-scale=300 id="start">
         <div class="inner">
@@ -50,7 +50,7 @@
             </p>
         </div>
     </div>
-    <div class="slide step" data-x="0" data-y="6000" data-z="400" data-rotate-z="90" id="גל-פרוש-על-כל-היקום">
+    <div class="slide step section" data-x="0" data-y="6000" data-z="400" data-rotate-z="90" id="גל-פרוש-על-כל-היקום">
         <div class="inner">
             <h3><a href="#ההד">גל פרוש</a> על כל <a href="#המחשבה-השמחה-ביותר-נסוי-חשיבה">היקום</a></h3>
         </div>
@@ -94,7 +94,7 @@
         <div class="inner">
         </div>
     </div>
-    <div class="slide step" data-x="-4000" data-y="3000" data-z="400" data-rotate-z="90" id="המת-שבבשר-החי">
+    <div class="slide step section" data-x="-4000" data-y="3000" data-z="400" data-rotate-z="90" id="המת-שבבשר-החי">
         <div class="inner">
             <h3><a href="#ראיתי-גלגלתו-בשדה">הַמֵּת</a> שֶׁבַּבָּשָׂר <a href="#כשנגעו-בגופתי">הַחַי</a></h3>
         </div>
@@ -165,7 +165,7 @@
         <div class="inner">
         </div>
     </div>
-    <div class="slide step" data-x="-18000" data-y="3000" data-z="400" data-rotate-z="90" id="היד-הנעה-שלי">
+    <div class="slide step section" data-x="-18000" data-y="3000" data-z="400" data-rotate-z="90" id="היד-הנעה-שלי">
         <div class="inner">
             <h3><a href="#ידים-זרות">הַיָּד</a> <a href="#המכונאי">הַנָּעָה</a> – שֶׁלִּי</h3>
         </div>
@@ -214,7 +214,7 @@
         <div class="inner">
         </div>
     </div>
-    <div class="slide step" data-x="-30000" data-y="3000" data-z="400" data-rotate-z="90" id="כל-זה-הוא-סבל">
+    <div class="slide step section" data-x="-30000" data-y="3000" data-z="400" data-rotate-z="90" id="כל-זה-הוא-סבל">
         <div class="inner">
             <h3><a href="#הבלי-העולם-הזה">כָּל זֶה</a> <a href="#עוד-בילדותי">הוּא סֵבֶל</a></h3>
         </div>
@@ -258,7 +258,7 @@
         <div class="inner">
         </div>
     </div>
-    <div class="slide step" data-x="-36000" data-y="3000" data-z="400" data-rotate-z="90" id="שבע-האהבות-שבליבי">
+    <div class="slide step section" data-x="-36000" data-y="3000" data-z="400" data-rotate-z="90" id="שבע-האהבות-שבליבי">
         <div class="inner">
             <h3><a href="#אני-חושבת-בחיוך-ובבכי">שֶׁבַע</a> <a href="#לסבתי">הָאֲהָבוֹת</a> <a href="#משוררת-צריך-לעלס-במהרה">שֶׁבְּלִבִּי</a></h3>
         </div>
@@ -283,7 +283,7 @@
         <div class="inner">
         </div>
     </div>
-    <div class="slide step" data-x="-42000" data-y="3000" data-z="400" data-rotate-z="90" id="משורר-אחד">
+    <div class="slide step section" data-x="-42000" data-y="3000" data-z="400" data-rotate-z="90" id="משורר-אחד">
         <div class="inner">
             <h3><a href="#הבלי-העולם-הזה">מְשׁוֹרֵר אֶחָד</a></h3>
         </div>
@@ -293,20 +293,13 @@
         </div>
     </div>
 </div>
-
+<select id="all_pages">
+</select>
 <div class="controls">
     <a class="downBtn">V</a>
 </div>
 <script src="impress.js"></script>
 <script src="impress_control.js"></script>
-<script>
-    var current_location = (decodeURIComponent(window.location.hash).substr(1));
-    console.log(current_location);
-    impress().init();
-    setTimeout(function(){
-        impress().goto(current_location);
-    }, 100);
-</script>
 
 </body>
 </html>
