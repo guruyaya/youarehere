@@ -72,7 +72,7 @@ $('#src').on('keyup', function(){
     htmlOutput[1] = '<p>';
     htmlOutput[htmlOutput.length-1] = '</p>';
 
-    for (var i=2;i<htmlOutput.length-1;i++){
+    for (var i=1;i<htmlOutput.length-1;i++){
         if (htmlOutput[i].trim() == '')
             htmlOutput[i] = "</p>\n<p>";
         else
