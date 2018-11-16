@@ -3,16 +3,69 @@
   src="https://code.jquery.com/jquery-2.2.4.min.js"
   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
   crossorigin="anonymous"></script>
-<textarea id="src" style="width:90vw; height: 35vh">
+<div style="float: right;width:80vw">
+<textarea id="src" style="width:80vw; height: 35vh">
 </textarea>
-<textarea id="target" style="width:90vw; height: 35vh">
+<textarea id="target" style="width:80vw; height: 35vh">
 </textarea>
 <input id="title" style="width: 40%" /> <br />
 <textarea id="title_id" style="width: 40%; height: 20vh; text-align: left"></textarea>
+</div>
+<textarea name="name" style="float: right;width:15vw; height: 90vh">
+start
+לסבתי
+גל-פרוש-על-כל-היקום
+היכן-אתה-על-המפה
+המחשבה-השמחה-ביותר-נסוי-חשיבה
+זוביידה
+פוגת-אוננות
+המת-שבבשר-החי
+הנפש-היא-מחלת-הגוף
+הוא--אני
+אשר
+העגל-רוצה-לינק
+באותה-העת-הייתי-חיל
+ההד
+המכער
+יאנק-השמן
+הגוף-השלישי
+מבצרי
+כשנגעו-בגופתי
+כשבקשתי-אהבני-כזית
+הגוף-הוא-מחלת-הנפש
+היד-הנעה-שלי
+האיש-עם-זנב-הנחש
+לאור-ציורי-הכושל
+השד-משתולל
+ראיתי-גלגלתו-בשדה
+חמלה
+קוף-מקוק-מסוג-ארך-זנב-זוכר-שלש-תמונות-ברצף
+הנזיר
+כל-יום-אני-פוגש-משורר
+כשיצא-מהתנור
+מולדת
+האמנית-לאה-ציגלר-איננה
+כל-זה-הוא-סבל
+משוררת-צריך-לעלס-במהרה
+ידים-זרות
+לתמונתו-של-לוטרק
+מחליקות-הקרח
+מעשיה-בודהיסטית
+יין-אחרון
+שבע-האהבות-שבליבי
+לאמא
+המכונאי
+אני-חושבת-בחיוך-ובבכי
+בילדותי
+עוד-בילדותי
+משורר-אחד
+הבלי-העולם-הזה
+</textarea>
+
 <script>
 $('#src').on('keyup', function(){
     var htmlOutput = $(this).val();
-    htmlOutput = htmlOutput.replace(/\[([^\]]*)\]\(([^\)]*)\)/, '<a href="#$2">$1</a>');
+    htmlOutput = htmlOutput.replace(/\[([^\]]*)\]\(([^\)]*)\)/g, '<a href="#$2">$1</a>');
 
     htmlOutput = htmlOutput.split('\n');
     htmlOutput[0] = '<h3>'+htmlOutput[0]+'</h3>';
