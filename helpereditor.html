@@ -68,13 +68,14 @@ $('#src').on('keyup', function(){
     htmlOutput = htmlOutput.replace(/\[([^\]]*)\]\(([^\)]*)\)/g, '<a href="#$2">$1</a>');
 
     htmlOutput = htmlOutput.split('\n');
-    htmlOutput[0] = '<h3>'+htmlOutput[0]+'</h3>';
-    htmlOutput[1] = '<p>';
+    htmlOutput[0] = '<h3>'+htmlOutput[0]+"</h3>\n<p>";
     htmlOutput[htmlOutput.length-1] = '</p>';
 
     for (var i=1;i<htmlOutput.length-1;i++){
         if (htmlOutput[i].trim() == '')
             htmlOutput[i] = "</p>\n<p>";
+        else if (htmlOutput[i][0] == '-')
+            htmlOutput[i] = '<blockquote>' + htmlOutput[i].substr(1,) + '</blockquote>';
         else
             htmlOutput[i] = htmlOutput[i] + '<br />';
     }

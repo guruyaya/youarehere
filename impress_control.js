@@ -26,15 +26,15 @@
       var targetOption = document.querySelector('#all_pages option[value='+currentStep.id+']');
       targetOption.selected = 'selected';
     });
-
+    rootElement.addEventListener( "impress:stepleave", function(event) {
+        var currentInnerElement = document.querySelector('.slide.active .inner');
+        currentInnerElement.style.transform = 'translate(0, 0)';
+    });
     window.HorizontalMove = function(factor){
-        var impress_root = document.querySelector('#impress>div');
-        var transformVars = impress_root.style.transform;
-        var translate3dRe = /translate3d\((-?[0-9]+px), ?(-?[0-9]+)px/
-        var translate3dMatch = transformVars.match(translate3dRe);
-        var yFactor = parseFloat(translate3dMatch[2]) + factor;
-        impress_root.style.transform = transformVars.replace(translate3dRe, 'translate3d($1, ' + yFactor + 'px');
+        var currentInnerElement = document.querySelector('.slide.active .inner');
+        currentInnerElement.dataset.ypos = (currentInnerElement.dataset.ypos || 0) - factor;
+        currentInnerElement.style.transform = 'translate(0, ' + currentInnerElement.dataset.ypos + 'px)';
     }
     var downBtn = document.querySelector('.controls .downBtn');
-    downBtn.addEventListener('click', function(){ HorizontalMove(-50 * 300) });
+    downBtn.addEventListener('click', function(){ HorizontalMove(50) });
 })();
