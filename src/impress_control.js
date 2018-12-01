@@ -27,8 +27,9 @@
       targetOption.selected = 'selected';
     });
     rootElement.addEventListener( "impress:stepleave", function(event) {
-        var currentInnerElement = document.querySelector('.slide.active .inner');
+        var currentInnerElement = event.target.querySelector('.inner');
         currentInnerElement.style.transform = 'translate(0, 0)';
+        currentInnerElement.dataset.ypos = 0;
     });
     window.HorizontalMove = function(factor){
         var currentInnerElement = document.querySelector('.slide.active .inner');
