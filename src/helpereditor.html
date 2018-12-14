@@ -77,6 +77,8 @@ $('#src').on('keyup', function(){
             htmlOutput[i] = "</p>\n<p>";
         else if (htmlOutput[i][0] == '-')
             htmlOutput[i] = '<blockquote>' + htmlOutput[i].substr(1,) + '</blockquote>';
+        else if (htmlOutput[i][0] == '*')
+        htmlOutput[i] = '<h5>' + htmlOutput[i].substr(1,) + '</h5>';
         else
             htmlOutput[i] = htmlOutput[i] + '<br />';
     }
