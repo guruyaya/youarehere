@@ -38,4 +38,12 @@
     }
     var downBtn = document.querySelector('.controls .downBtn');
     downBtn.addEventListener('click', function(){ HorizontalMove(50) });
+    var him_or_me = document.getElementById('הוא--אני');
+    him_or_me.addEventListener('click', function(e) {
+        if (e.target.classList.contains('option1')) {
+            him_or_me.classList.add('show-other');
+        }else if (e.target.classList.contains('option2')) {
+            him_or_me.className = him_or_me.className.replace(/\bshow-other\b/g, "");
+        }
+    });
 })();

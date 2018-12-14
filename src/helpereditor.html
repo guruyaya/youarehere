@@ -66,6 +66,7 @@ start
 $('#src').on('keyup', function(){
     var htmlOutput = $(this).val();
     htmlOutput = htmlOutput.replace(/\[([^\]]*)\]\(([^\)]*)\)/g, '<a href="#$2">$1</a>');
+    htmlOutput = htmlOutput.replace(/\{([^\\]+)\\([^\}]+)\}/g, '<a class="option1">$1</a><a class="option2">$2</a>');
 
     htmlOutput = htmlOutput.split('\n');
     htmlOutput[0] = '<h3>'+htmlOutput[0]+"</h3>\n<p>";

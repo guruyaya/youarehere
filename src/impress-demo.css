@@ -75,3 +75,10 @@ a:hover {
 blockquote {
     font-style: italic;
 }
+a.option1, a.option2 {
+    text-decoration: underline;
+    cursor: pointer;
+}
+.option2 { display: none;}
+.show-other .option1 {display: none;}
+.show-other .option2 {display: inline;}
