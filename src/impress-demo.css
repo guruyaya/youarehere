@@ -1,7 +1,8 @@
 body {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('map.jpg');
+    background: url('map2.jpg');
     background-repeat: no-repeat;
     background-position: center;
+    background-size: cover;
 }
 a,
 a:active,
@@ -22,7 +23,7 @@ a:hover {
 .slide.faded {
     opacity: 0.5;
     filter: brightness(20%);
-    transition: opacity 1s, filter 1s;  
+    transition: opacity 1s, filter 1s;
 }
 .slide.faded.active {
     opacity: 1;
