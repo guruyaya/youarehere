@@ -5,10 +5,24 @@
         var slide = slides[i];
         var option = document.createElement('option');
         option.value = slide.id;
+        var slideHead = slide.children[0].querySelector('h3');
+        if (slideHead){
+            var slideName = slideHead.innerText;
+        }else{
+            var slideName = slide.id;
+        }
+        if (slideName == "*"){
+            var lines = slide.children[0].querySelectorAll('p');
+            slideName = '*' + ' (' + lines[0].innerText.split('\n')[0] + ')';
+            if (slideName == '* ()'){
+                slideName = slide.id;
+                slideName = '*' + ' (' + slideName + ')';
+            }
+        }
         if (slide.classList.contains('section'))
-            option.innerHTML = "* * " + slide.id + " * *";
+            option.innerHTML = "* * " + slideName + " * *";
         else
-            option.innerHTML = slide.id;
+            option.innerHTML = slideName;
         all_pages.appendChild(option);
     }
     all_pages.addEventListener('change', function(){

@@ -1,8 +1,38 @@
 body {
-    background: url('map2.jpg');
+    background: url('img/map2.jpg');
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: center top;
     background-size: cover;
+}
+@media screen and (max-width: 3000px) {
+    body{
+        background: url('img/map-3000x2250.jpg');
+    }
+}
+@media screen and (max-width: 2500px) {
+    body{
+        background: url('img/map-2500x1875.jpg');
+    }
+}
+@media screen and (max-width: 2000px) {
+    body{
+        background: url('img/map-2000x1500.jpg');
+    }
+}
+@media screen and (max-width: 1500px) {
+    body{
+        background: url('img/map-1500x1125.jpg');
+    }
+}
+@media screen and (max-width: 1000px) {
+    body{
+        background: url('img/map-1000x750.jpg');
+    }
+}
+@media screen and (max-width: 800px) {
+    body{
+        background: url('img/map-800x600.jpg');
+    }
 }
 a,
 a:active,
@@ -16,9 +46,15 @@ a:hover {
     width: 95vw;
     height: 95vh;
     margin: auto;
-    padding: 10vh 0;
+    padding: 5vw 0;
     font-family: sans-serif;
     font-size: 16px;
+}
+@media only screen and (max-width: 700px) and (orientation: portrait) {
+    .slide {
+        width: 95vw;
+        height: 130vh;
+    }
 }
 .slide.faded {
     opacity: 0.5;
@@ -32,11 +68,11 @@ a:hover {
 .slide .inner{
     direction: rtl;
     background: linear-gradient(#fbfb7a, #FFF, #CAC);
-    width: 80%;
-    min-height: 80%;
+    width: 90%;
+    min-height: 90%;
     margin: auto;
     border-radius: 3vw/3vh;
-    padding: 2vh 2vw;
+    padding: 2vw 2vh;
     border: solid 1px #000;
     transition: transform 0.5s;
 }
@@ -81,6 +117,7 @@ a:hover {
     position: fixed;
     top: 0;
     left: 0;
+    direction: rtl;
 }
 blockquote {
     font-style: italic;
