@@ -77,9 +77,10 @@ a:hover {
     transition: transform 0.5s;
 }
 .slide.section h3 {
-    text-align: left;
+    text-align: center;
+    margin-top: calc(40vh - 15px);
 }
-.slide#start .inner{
+.slide#start{
     text-align: center;
     background: transparent;
     text-shadow: -2px -2px 1px #000, 2px -2px 1px #000, 2px 2px 1px #000, -2px 2px 1px #000;
@@ -90,6 +91,10 @@ a:hover {
     font-size: 8vw;
     padding: 0;
     margin: 0;
+}
+.slide#start h2 {
+    width: 420px;
+    margin: 20px auto;
 }
 .slide#start a,
 .slide#start a:active,
