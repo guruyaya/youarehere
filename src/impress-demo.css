@@ -43,19 +43,14 @@ a:hover {
     color: #fa7aaa;
 }
 .slide {
-    width: 95vw;
-    height: 95vh;
+    width: 1180px;
+    height: 540px;
     margin: auto;
-    padding: 5vw 0;
+    padding: 62px 0;
     font-family: sans-serif;
     font-size: 16px;
 }
-@media only screen and (max-width: 700px) and (orientation: portrait) {
-    .slide {
-        width: 95vw;
-        height: 130vh;
-    }
-}
+
 .slide.faded {
     opacity: 0.5;
     filter: brightness(20%);
@@ -71,8 +66,8 @@ a:hover {
     width: 90%;
     min-height: 90%;
     margin: auto;
-    border-radius: 3vw/3vh;
-    padding: 2vw 2vh;
+    border-radius: 37px/17px;
+    padding: 25px 11px;
     border: solid 1px #000;
     transition: transform 0.5s;
 }
@@ -88,7 +83,7 @@ a:hover {
     color: #9AF;
 }
 .slide#start h1 {
-    font-size: 8vw;
+    font-size: 100px;
     padding: 0;
     margin: 0;
 }
@@ -106,15 +101,15 @@ a:hover {
     display: block;
 }
 .slide#start h1 bdi.you {
-    margin-left: 17vw;
+    margin-left: 211px;
 }
 .slide#start h1 bdi.are {
-    margin-left: -20vw;
+    margin-left: -248px;
 }
 .controls .downBtn {
     position: fixed;
-    bottom: 50vh;
-    left: 5vw;
+    bottom: 10px;
+    left: 50%;
     background: red;
     cursor: pointer;
 }
