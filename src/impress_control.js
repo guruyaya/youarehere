@@ -29,10 +29,8 @@
         impress().goto(all_pages.options[all_pages.selectedIndex].value);
     });
     var current_location = (decodeURIComponent(window.location.hash).substr(1).replace('/', ''));
-    console.log(current_location);
     impress().init();
     setTimeout(function(){
-        console.log(current_location);
         impress().goto(current_location);
     }, 100);
 
