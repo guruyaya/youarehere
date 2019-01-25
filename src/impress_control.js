@@ -1,33 +1,4 @@
 (function(){
-    var all_pages = document.getElementById('all_pages');
-    var slides = document.querySelectorAll('.slide');
-    for(var i=0;i<slides.length;i++){
-        var slide = slides[i];
-        var option = document.createElement('option');
-        option.value = slide.id;
-        var slideHead = slide.children[0].querySelector('h3');
-        if (slideHead){
-            var slideName = slideHead.innerText;
-        }else{
-            var slideName = slide.id;
-        }
-        if (slideName == "*"){
-            var lines = slide.children[0].querySelectorAll('p');
-            slideName = '*' + ' (' + lines[0].innerText.split('\n')[0] + ')';
-            if (slideName == '* ()'){
-                slideName = slide.id;
-                slideName = '*' + ' (' + slideName + ')';
-            }
-        }
-        if (slide.classList.contains('section'))
-            option.innerHTML = "* * " + slideName + " * *";
-        else
-            option.innerHTML = slideName;
-        all_pages.appendChild(option);
-    }
-    all_pages.addEventListener('change', function(){
-        impress().goto(all_pages.options[all_pages.selectedIndex].value);
-    });
     var current_location = (decodeURIComponent(window.location.hash).substr(1).replace('/', ''));
     impress().init();
     setTimeout(function(){
@@ -35,11 +6,6 @@
     }, 100);
 
     var rootElement = document.getElementById( "impress" );
-    rootElement.addEventListener( "impress:stepenter", function(event) {
-      var currentStep = event.target;
-      var targetOption = document.querySelector('#all_pages option[value='+currentStep.id+']');
-      targetOption.selected = 'selected';
-    });
     rootElement.addEventListener( "impress:stepleave", function(event) {
         var currentInnerElement = event.target.querySelector('.inner');
         if (currentInnerElement){
@@ -47,13 +13,74 @@
             currentInnerElement.dataset.ypos = 0;
         }
     });
+    rootElement.addEventListener( "impress:stepenter", function(event) {
+        var selected_id = event.target.id;
+        var all_li =document.querySelectorAll( '#top_controls .search #all_pages li' );
+        for (var i=0; i < all_li.length ; i++) {
+            all_li[i].classList.remove('transition');
+            if (all_li[i].dataset.target == selected_id)
+                all_li[i].classList.add('active');
+            else
+                all_li[i].classList.remove('active');
+
+        }
+    });
     window.HorizontalMove = function(factor){
         var currentInnerElement = document.querySelector('.slide.active .inner');
+        if (!currentInnerElement)
+            return;
         currentInnerElement.dataset.ypos = (currentInnerElement.dataset.ypos || 0) - factor;
         currentInnerElement.style.transform = 'translate(0, ' + currentInnerElement.dataset.ypos + 'px)';
     }
-    var downBtn = document.querySelector('.controls .downBtn');
+    var downBtn = document.querySelector('#bottom_controls .arrow');
     downBtn.addEventListener('click', function(){ HorizontalMove(50) });
+
+    var upBtn = document.querySelector('#top_controls .arrow');
+    upBtn.addEventListener('click', function(){ HorizontalMove(-50) });
+
+    var rightBtn = document.querySelector('#right_controls .arrow');
+    rightBtn.addEventListener('click', function(){ impress().prev(); });
+
+    var leftBtn = document.querySelector('#left_controls .arrow');
+    leftBtn.addEventListener('click', function(){ impress().next(); });
+
+    var schBtn = document.querySelector('.search img');
+    schBtn.addEventListener('click', function() {
+         if (document.querySelector('.search').classList.toggle('open'))
+            document.querySelector('.search input').select();
+    });
+    var all_pages_input = document.querySelector('#top_controls .search input');
+    document.body.addEventListener('click', function (ev) {
+        console.log(ev.target);
+        if (ev.target.matches('#top_controls .search #all_pages li')) {
+            ev.target.classList.add('transition');
+            impress().goto(ev.target.dataset.target);
+            setTimeout(function(){
+                document.querySelector('#top_controls .search').classList.remove('open');
+                setTimeout(function(){
+                    all_pages_input.value = '';
+                    var all_li =document.querySelectorAll( '#top_controls .search #all_pages li' );
+                    for (var i=0; i < all_li.length ; i++) {
+                        all_li[i].style.display = 'list-item'
+                    }
+                }, 800);
+            }, 1000);
+        }
+    });
+    var sch_func = function (){
+        var this_li;
+        var search_phrase=all_pages_input.value.replace(' ', '-')
+        var all_li =document.querySelectorAll( '#top_controls .search #all_pages li' );
+        for (var i=0; i < all_li.length ; i++) {
+            if (all_li[i].dataset.target.search(search_phrase) == -1)
+                all_li[i].style.display = 'none';
+            else
+                all_li[i].style.display = 'list-item'
+        }
+    }
+    all_pages_input.addEventListener('keydown', sch_func);
+    all_pages_input.addEventListener('keyup', sch_func);
+
     var him_or_me = document.getElementById('הוא--אני');
     him_or_me.addEventListener('click', function(e) {
         if (e.target.classList.contains('option1')) {

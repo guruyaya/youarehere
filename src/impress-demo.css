@@ -112,19 +112,6 @@ a:hover {
 .slide#start h1 bdi.are {
     margin-left: -248px;
 }
-.controls .downBtn {
-    position: fixed;
-    bottom: 10px;
-    left: 50%;
-    background: red;
-    cursor: pointer;
-}
-#all_pages {
-    position: fixed;
-    top: 0;
-    left: 0;
-    direction: rtl;
-}
 blockquote {
     font-style: italic;
 }
@@ -136,6 +123,147 @@ a.option1, a.option2 {
 .show-other .option1 {display: none;}
 .show-other .option2 {display: inline;}
 
+/* Controls */
+.controls {
+    background: rgba(240,240,255,0.3);
+    position: fixed;
+    direction: rtl;
+}
+.controls img {
+    height: 50px;
+    width: 50px;
+}
+#top_controls {
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 50px;
+}
+#bottom_controls {
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: 50px;
+}
+#bottom_controls .arrow,
+#top_controls .arrow {
+    position: absolute;
+    left: 50%;
+    margin-left: 75px;
+    width: 50px;
+    height: 50px;
+    top: 0;
+}
+#bottom_controls .arrow span,
+#top_controls .arrow span {
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 55px;
+    font-size: 20px;
+    width: 200px;
+    cursor: pointer;
+}
+#top_controls img {
+    transform: rotate(90deg);
+}
+
+#bottom_controls img {
+    transform: rotate(-90deg);
+}
+#left_controls {
+    top: 50px;
+    left: 0;
+    height: calc(100vh - 100px);
+    width: 50px;
+}
+#right_controls {
+    top: 50px;
+    right: 0;
+    height: calc(100vh - 100px);
+    width: 50px;
+}
+#left_controls .arrow,
+#right_controls .arrow {
+    position: absolute;
+    top: 50%;
+    margin-top: -50px;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+#right_controls img {
+    transform: rotate(-180deg);
+}
+#right_controls .arrow span {
+    display: block;
+    transform: rotate(-90deg);
+    font-size: 20px;
+    margin-top: 10px;
+    font-weight: bold;
+}
+#left_controls .arrow span {
+    display: block;
+    transform: rotate(-90deg);
+    font-size: 20px;
+    margin-top: 10px;
+    font-weight: bold;
+}
+#top_controls .search #all_pages {
+    display: block;
+    width: 205px;
+    overflow-y: scroll;
+    direction: rtl;
+    border: solid 1px #484848;
+    padding: 0;
+    margin: 10px 0 0;
+    max-height: 200px;
+}
+#top_controls .search #all_pages li {
+    list-style-type: none;
+    background: white;
+    overflow-x: hidden;
+    padding: 0;
+    border-bottom: solid 1px #777;
+    cursor: pointer;
+}
+#top_controls .search #all_pages li.transition {
+    background: #BBF;
+}
+#top_controls .search #all_pages li.active {
+    background: #99F;
+}
+#top_controls .search .search_panel {
+    position: absolute;
+    right: 50px;
+    top: 20px;
+    width: 0;
+    overflow: hidden;
+    transition: width 0.6s;
+}
+#top_controls .search.open .search_panel {
+    width: 250px;
+}
+#top_controls .search {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+#top_controls .search input {
+    border: none;
+    top: -10px;
+    transition: padding 0.1s linear, width 0.4s cubic-bezier(0.250, 0.250, 0.585, 1.335) 0.1s;
+}
+#top_controls .search input {
+    width: 200px;
+    padding: 2px;
+    border: solid 1px blue;
+}
+#top_controls .search img {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
 @media screen and (orientation: portrait) {
     .impress-enabled .slide {
         height: 540px;
