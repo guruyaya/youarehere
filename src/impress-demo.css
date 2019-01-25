@@ -4,16 +4,6 @@ body {
     background-position: center top;
     background-size: cover;
 }
-@media screen and (max-width: 3000px) {
-    body{
-        background: url('img/map-3000x2250.jpg');
-    }
-}
-@media screen and (max-width: 2500px) {
-    body{
-        background: url('img/map-2500x1875.jpg');
-    }
-}
 @media screen and (max-width: 2000px) {
     body{
         background: url('img/map-2000x1500.jpg');
@@ -50,7 +40,13 @@ a:hover {
     font-family: sans-serif;
     font-size: 16px;
 }
-
+@media screen and (max-width: 1200px) {
+    .slide {
+        width: 800px;
+        height: 366px;
+        font-size: 25px;
+    }
+}
 .slide.faded {
     opacity: 0.5;
     filter: brightness(20%);
@@ -129,3 +125,10 @@ a.option1, a.option2 {
 .option2 { display: none;}
 .show-other .option1 {display: none;}
 .show-other .option2 {display: inline;}
+
+@media screen and (orientation: portrait) {
+    .slide {
+        width: 540px;
+        height: 540px;
+    }
+}
