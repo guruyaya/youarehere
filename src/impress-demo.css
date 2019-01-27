@@ -41,6 +41,10 @@ a:hover {
     font-family: sans-serif;
     font-size: 16px;
 }
+.slide.active {
+    height: 100vh;
+    overflow-y: auto;
+}
 .impress-enabled .slide {
         height: 540px;
 }
