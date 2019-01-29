@@ -7,6 +7,7 @@
 
     var rootElement = document.getElementById( "impress" );
     rootElement.addEventListener( "impress:stepleave", function(event) {
+        event.detail.next.style.width = String(Math.round(100 /   document.getElementById('impress').dataset.windowScale)) + 'vw'
         var currentInnerElement = event.target.querySelector('.inner');
         if (currentInnerElement){
             currentInnerElement.style.transform = 'translate(0, 0)';
@@ -14,6 +15,7 @@
         }
     });
     rootElement.addEventListener( "impress:stepenter", function(event) {
+
         var selected_id = event.target.id;
         var all_li =document.querySelectorAll( '#top_controls .search #all_pages li' );
         for (var i=0; i < all_li.length ; i++) {
@@ -25,24 +27,12 @@
 
         }
     });
-    window.HorizontalMove = function(factor){
-        var currentInnerElement = document.querySelector('.slide.active .inner');
-        if (!currentInnerElement)
-            return;
-        currentInnerElement.dataset.ypos = (currentInnerElement.dataset.ypos || 0) - factor;
-        currentInnerElement.style.transform = 'translate(0, ' + currentInnerElement.dataset.ypos + 'px)';
-    }
+
     var downBtn = document.querySelector('#bottom_controls .arrow');
-    downBtn.addEventListener('click', function(){ HorizontalMove(50) });
+    downBtn.addEventListener('click', function(){ impress().next() });
 
     var upBtn = document.querySelector('#top_controls .arrow');
-    upBtn.addEventListener('click', function(){ HorizontalMove(-50) });
-
-    var rightBtn = document.querySelector('#right_controls .arrow');
-    rightBtn.addEventListener('click', function(){ impress().prev(); });
-
-    var leftBtn = document.querySelector('#left_controls .arrow');
-    leftBtn.addEventListener('click', function(){ impress().next(); });
+    upBtn.addEventListener('click', function(){ impress().prev() });
 
     var schBtn = document.querySelector('.search img');
     schBtn.addEventListener('click', function() {
@@ -51,7 +41,6 @@
     });
     var all_pages_input = document.querySelector('#top_controls .search input');
     document.body.addEventListener('click', function (ev) {
-        console.log(ev.target);
         if (ev.target.matches('#top_controls .search #all_pages li')) {
             ev.target.classList.add('transition');
             impress().goto(ev.target.dataset.target);

@@ -40,11 +40,14 @@ a:hover {
     padding: 62px 0;
     font-family: sans-serif;
     font-size: 16px;
+    transition: all linear 1s;
 }
 .slide.active {
     height: 100vh;
+    width: 100vw;
     overflow-y: auto;
 }
+
 .impress-enabled .slide {
         height: 540px;
 }
@@ -53,8 +56,12 @@ a:hover {
 }
 @media screen and (max-width: 1200px) {
     .impress-enabled .slide {
-        width: 800px;
-        height: 366px;
+        min-height: 366px;
+        font-size: 25px;
+    }
+    .impress-enabled .slide .inner {
+        width: 90%;
+        min-height: 366px;
         font-size: 25px;
     }
 }
@@ -70,8 +77,8 @@ a:hover {
 .slide .inner{
     direction: rtl;
     background: linear-gradient(#fbfb7a, #FFF, #CAC);
-    width: 90%;
-    min-height: 90%;
+    width: 1062px;
+    min-height: 486px;
     margin: auto;
     border-radius: 37px/17px;
     padding: 25px 11px;
@@ -115,6 +122,14 @@ a:hover {
 }
 .slide#start h1 bdi.are {
     margin-left: -248px;
+}
+@media screen and (max-width: 700px) {
+    .slide#start h1 {
+        font-size: 70px;
+    }
+    .slide#start h2 {
+        font-size: 30px;
+    }
 }
 blockquote {
     font-style: italic;
@@ -174,18 +189,6 @@ a.option1, a.option2 {
 
 #bottom_controls img {
     transform: rotate(-90deg);
-}
-#left_controls {
-    top: 50px;
-    left: 0;
-    height: calc(100vh - 100px);
-    width: 50px;
-}
-#right_controls {
-    top: 50px;
-    right: 0;
-    height: calc(100vh - 100px);
-    width: 50px;
 }
 #left_controls .arrow,
 #right_controls .arrow {
@@ -269,10 +272,15 @@ a.option1, a.option2 {
     cursor: pointer;
 }
 @media screen and (orientation: portrait) {
-    .impress-enabled .slide {
-        height: 540px;
-    }
     .slide {
         max-width: 540px;
+    }
+    .slide .inner {
+        min-height: 540px;
+    }
+    .slide.active {
+        height: 170vh;
+        max-height: auto;
+        overflow-y: auto;
     }
 }
