@@ -1036,7 +1036,7 @@
         startingState.roots[ rootId ].steps = [];
 
         // Record whether the steps have an id or not
-        var steps = document.getElementById( rootId ).querySelectorAll( ".step" );
+        var steps = document.getElementById( rootId ).querySelectorAll( ".step:not(.skip)" );
         for ( var i = 0; i < steps.length; i++ ) {
             var el = steps[ i ];
             startingState.roots[ rootId ].steps.push( {
