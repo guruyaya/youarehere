@@ -39,7 +39,7 @@ a:hover {
     margin: auto;
     padding: 62px 0;
     font-family: sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     transition: all linear 1s;
 }
 .slide.active {
@@ -97,7 +97,7 @@ a:hover {
     background: transparent;
     text-shadow: -2px -2px 1px #000, 2px -2px 1px #000, 2px 2px 1px #000, -2px 2px 1px #000;
     border: none;
-    color: #9AF;
+    color: #FFF;
 }
 .slide#start h1 {
     font-size: 100px;
@@ -107,11 +107,18 @@ a:hover {
 .slide#start h2 {
     width: 420px;
     margin: 20px auto;
+    font-size: 30px;
+}
+.slide#start p {
+    font-size: 24px;
+    font-weight: bold;
 }
 .slide#start a,
 .slide#start a:active,
 .slide#start a:visited {
-    color: #9AF;
+    color: #429;
+    letter-spacing: 2px;
+    text-shadow: -1px -1px 1px #24A, 1px -1px 1px #000, 1px 1px 1px #000, -1px 1px 1px #000;
 }
 
 .slide#start h1 bdi {
@@ -157,6 +164,82 @@ a.option1, a.option2 {
     left: 0;
     width: 100vw;
     height: 50px;
+}
+#top_controls .menu {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    background: rgba(255, 255, 255, 0.3)
+}
+#top_controls .menu>input {
+    display: none;
+}
+#top_controls .menu>label {
+    width: 40px;
+    height: 40px;
+    z-index: 9;
+    position: absolute;
+}
+#menu_items {
+    position: absolute;
+    padding: 50px 5px 0 0;
+    margin: 0;
+    top: 0px;
+    left: 0px;
+    opacity: 0;
+    overflow: hidden;
+    height: 0;
+    transition: none;
+    border: solid 1px #888;
+    background: rgba(200, 240, 255, 0.6);
+    width: 70px;
+    border-radius: 10px/5px;
+}
+#top_controls .menu>#menu_button:checked+label+#menu_items {
+    height: auto;
+    opacity: 1;
+    transition: opacity 0.5s linear 0s, height 0.001s linear 5s;
+}
+#menu_items li {
+    list-style: none;
+    height: 30px;
+    font-size: 20px;
+}
+#top_controls .menu>label:before,
+#top_controls .menu>label:after,
+#top_controls .menu>label>div {
+    width: 30px;
+    height: 5px;
+    border: solid 1px #000;
+    background: white;
+    position: absolute;
+    top: 17.5px;
+    left: 5px;
+    border-radius: 4px;
+    display: block;
+    transition: top 0.1s linear 0.05s, transform 0.05s linear 0s;
+}
+#top_controls .menu>label:before {
+    top: 29px;
+    content: " ";
+}
+#top_controls .menu>#menu_button:checked+label:before,
+#top_controls .menu>#menu_button:checked+label div{
+    top: 17.5px;
+    transform: rotate(45deg);
+    transition: top 0.1s linear, transform 0.05s linear 0.1s;
+
+}
+#top_controls .menu>#menu_button:checked+label:after {
+    top: 17.5px;
+    transform: rotate(-45deg);
+    transition: top 0.1s linear, transform 0.05s linear 0.1s;
+}
+#top_controls .menu>label:after {
+    top: 6px;
+    content: " ";
 }
 #bottom_controls {
     bottom: 0;
@@ -253,8 +336,8 @@ a.option1, a.option2 {
 }
 #top_controls .search {
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 5px;
+    right: 5px;
 }
 #top_controls .search input {
     border: none;
