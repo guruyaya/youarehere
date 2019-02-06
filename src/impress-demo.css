@@ -37,10 +37,13 @@ a:hover {
     width: 1180px;
     min-height: 540px;
     margin: auto;
-    padding: 62px 0;
     font-family: sans-serif;
     font-size: 18px;
     transition: all linear 1s;
+    padding: 30px 0;
+}
+.impress-enabled .slide {
+    padding: 62px 0;
 }
 .slide.active {
     height: 100vh;
@@ -78,12 +81,15 @@ a:hover {
     direction: rtl;
     background: linear-gradient(#fbfb7a, #FFF, #CAC);
     width: 1062px;
-    min-height: 486px;
     margin: auto;
     border-radius: 37px/17px;
     padding: 25px 11px;
     border: solid 1px #000;
     transition: transform 0.5s;
+    min-height: 70vh;
+}
+.impress-enabeld .slide .inner{
+    min-height: 486px;
 }
 .slide.section h3 {
     text-align: center;
@@ -194,8 +200,38 @@ a.option1, a.option2 {
     transition: none;
     border: solid 1px #888;
     background: rgba(200, 240, 255, 0.6);
-    width: 70px;
+    width: 116px;
     border-radius: 10px/5px;
+}
+.arrow {
+    display: none;
+}
+.impress-enabled .arrow {
+    display: block;
+}
+.impress-enabled #run_impress {
+    display: none;
+}
+.do_support #safari_note {
+    display: none;
+}
+html {
+  scroll-behavior: smooth;
+}
+ #safari_note {
+     text-align: center;
+     direction: rtl;
+     margin: 60px 0 20px;
+     background: white;
+     border: solid 1px #000;
+     border-radius: 20px;
+     padding: 20px;
+ }
+#turn_off_impress {
+    display: none;
+}
+.impress-enabled #turn_off_impress {
+    display: list-item;
 }
 #top_controls .menu>#menu_button:checked+label+#menu_items {
     height: auto;
@@ -242,11 +278,16 @@ a.option1, a.option2 {
     content: " ";
 }
 #bottom_controls {
+    display: none;
+}
+.impress-enabled #bottom_controls {
     bottom: 0;
     left: 0;
     width: 100vw;
     height: 50px;
+    display: block;
 }
+
 #bottom_controls .arrow,
 #top_controls .arrow {
     position: absolute;
