@@ -1,4 +1,14 @@
 (function(){
+    var setAdjustedWidth = function (){
+        document.querySelector(':root').style.setProperty('--ajusted_width', String(Math.round(100 /   document.getElementById('impress').dataset.windowScale)) + 'vw');
+        console.log( Math.round(100 /   document.getElementById('impress').dataset.windowScale) );
+    }
+    var rootElement = document.getElementById( "impress" );
+    rootElement.addEventListener( "impress:init", function() {
+      console.log( "Impress init" );
+      setAdjustedWidth();
+    });
+
     var is_safari = function () {
         var ua = navigator.userAgent.toLowerCase();
         if (ua.indexOf('safari') != -1) {
@@ -26,7 +36,6 @@
 
     var rootElement = document.getElementById( "impress" );
     rootElement.addEventListener( "impress:stepleave", function(event) {
-        event.detail.next.style.width = String(Math.round(100 /   document.getElementById('impress').dataset.windowScale)) + 'vw'
         var currentInnerElement = event.target.querySelector('.inner');
         if (currentInnerElement){
             currentInnerElement.style.transform = 'translate(0, 0)';
@@ -34,7 +43,6 @@
         }
     });
     rootElement.addEventListener( "impress:stepenter", function(event) {
-
         var selected_id = event.target.id;
         var all_li =document.querySelectorAll( '#top_controls .search #all_pages li' );
         for (var i=0; i < all_li.length ; i++) {
@@ -64,7 +72,10 @@
     document.body.addEventListener('click', function (ev) {
         if (ev.target.matches('#top_controls .search #all_pages li')) {
             ev.target.classList.add('transition');
-            impress().goto(ev.target.dataset.target);
+            if (document.body.classList.contains('impress-enabled'))
+                impress().goto(ev.target.dataset.target);
+            else
+                window.location.href='#' + ev.target.dataset.target;
             setTimeout(function(){
                 document.querySelector('#top_controls .search').classList.remove('open');
                 setTimeout(function(){
@@ -100,6 +111,8 @@
         }
     });
 
+    window.addEventListener('resize', setAdjustedWidth);
+
     document.querySelector('#run_impress').addEventListener('click', function () {
         if (!is_safari())
             impress().init();
@@ -109,4 +122,5 @@
     document.querySelector('#turn_off_impress').addEventListener('click', function () {
         impress().tear();
     });
+
 })();
