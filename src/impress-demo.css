@@ -206,7 +206,7 @@ a.option1, a.option2 {
     transition: none;
     border: solid 1px #888;
     background: rgba(200, 240, 255, 0.6);
-    width: 116px;
+    width: 160px;
     border-radius: 10px/5px;
 }
 .arrow {
