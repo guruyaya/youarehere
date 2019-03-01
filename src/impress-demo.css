@@ -30,10 +30,10 @@ body {
 a,
 a:active,
 a:visited {
-    color: #5f00a5;
+    color: #232a50;
 }
 a:hover {
-    color: #fa7aaa;
+    color: #333a60;
 }
 
 .slide {
@@ -82,7 +82,7 @@ a:hover {
 }
 .slide .inner{
     direction: rtl;
-    background: linear-gradient(#fbfb7a, #FFF, #CAC);
+    background: linear-gradient(#01b053, #01b053, #c6d4ef);
     margin: auto;
     border-radius: 37px/17px;
     padding: 25px 11px;
